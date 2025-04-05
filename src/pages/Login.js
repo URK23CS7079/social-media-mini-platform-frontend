@@ -29,7 +29,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", user);
+      const response = await axios.post("https://social-media-mini-platform-backend.onrender.com/api/auth/login", user);
       const token = response.data.token;
       login(token);
       navigate("/");

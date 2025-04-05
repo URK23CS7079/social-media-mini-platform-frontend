@@ -21,7 +21,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/auth/register", user);
+      await axios.post("https://social-media-mini-platform-backend.onrender.com/api/auth/register", user);
       navigate("/login");
     } catch (error) {
       setError(error.response?.data?.error || "Failed to create user. Please try again.");

@@ -25,7 +25,7 @@ const PostForm = ({ open, onClose, onPostCreated }) => {
         window.location.reload();  // ✅ Refreshes the page
       };
     try {
-      const res = await axios.post("http://localhost:5000/api/posts/create", formData, {
+      const res = await axios.post("https://social-media-mini-platform-backend.onrender.com/api/posts/create", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

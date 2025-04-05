@@ -29,7 +29,7 @@ const Post = ({ post }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:5000/api/likes/${post.id}`,
+        `https://social-media-mini-platform-backend.onrender.com/api/likes/${post.id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       
@@ -45,7 +45,7 @@ const Post = ({ post }) => {
   const fetchComments = useCallback(async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/comments/${post.id}`
+        `https://social-media-mini-platform-backend.onrender.com/api/comments/${post.id}`
       );
       setComments(response.data);
     } catch (error) {
@@ -68,7 +68,7 @@ const Post = ({ post }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/likes/${post.id}`,
+        `https://social-media-mini-platform-backend.onrender.com/api/likes/${post.id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -85,7 +85,7 @@ const Post = ({ post }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/comments/create",
+        "https://social-media-mini-platform-backend.onrender.com/api/comments/create",
         { postId: post.id, commentText: newComment },
         { headers: { Authorization: `Bearer ${token}` } }
       );

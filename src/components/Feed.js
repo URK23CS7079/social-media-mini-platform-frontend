@@ -15,7 +15,7 @@ const Feed = () => {
         return;
       }
 
-      const response = await axios.get("http://localhost:5000/api/posts", {
+      const response = await axios.get("https://social-media-mini-platform-backend.onrender.com/api/posts", {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

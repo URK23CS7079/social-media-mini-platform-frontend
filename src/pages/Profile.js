@@ -29,7 +29,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          `http://localhost:5000/api/users/${profileUserId}/profile`,
+          `https://social-media-mini-platform-backend.onrender.com/api/users/${profileUserId}/profile`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -41,7 +41,7 @@ const Profile = () => {
 
         if (currentUserId && currentUserId !== profileUserId) {
           const followCheck = await fetch(
-            `http://localhost:5000/api/follows/check?followerId=${currentUserId}&followingId=${profileUserId}`,
+            `https://social-media-mini-platform-backend.onrender.com/api/follows/check?followerId=${currentUserId}&followingId=${profileUserId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ const Profile = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const url = `http://localhost:5000/api/follows/${
+      const url = `https://social-media-mini-platform-backend.onrender.com/api/follows/${
         isFollowing ? "unfollow" : "follow"
       }`;
       const response = await fetch(url, {
