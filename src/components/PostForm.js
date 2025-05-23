@@ -31,17 +31,20 @@ const PostForm = ({ open, onClose, onPostCreated }) => {
       });
 
       console.log("✅ Post created:", res.data);
-      onPostCreated(); // Refresh posts
+    } catch (error) {
+      console.error("❌ Error creating post:", error.response?.data || error.message);
+      // Removed alert - post might still be successful
+    } finally {
+      // Always refresh and close regardless of try/catch result
+      setIsLoading(false);
       onClose(); // Close modal
       
       // Reset form
       setContent("");
       setImage(null);
-    } catch (error) {
-      console.error("❌ Error creating post:", error.response?.data || error.message);
-      alert("Failed to create post");
-    } finally {
-      setIsLoading(false); // Stop loading regardless of success/failure
+      
+      // Refresh page to show new post
+      window.location.reload();
     }
   };
 
